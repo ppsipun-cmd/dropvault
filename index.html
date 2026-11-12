@@ -252,4 +252,53 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.75);
-            backdrop-filter
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            Drop<span>Vault</span>
+            <span class="cod-pill">Hand-to-Hand</span>
+        </div>
+        <div class="nav-actions">
+            <button class="btn btn-primary">List Item</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Secure Hand-to-Hand Marketplace</h1>
+        <p>Direct local exchanges backed by verification and complete safety.</p>
+        <div class="trust-banner">
+            <div><span>100%</span> Verified Locals</div>
+            <div><span>0%</span> Online Scam Risk</div>
+            <div><span>Direct</span> Meetups</div>
+        </div>
+    </section>
+
+    <div class="controls">
+        <input type="text" class="search-box" placeholder="Search items near you...">
+    </div>
+
+    <main class="grid-container">
+        <!-- Sample Card -->
+        <div class="card">
+            <div class="card-img" style="display: flex; align-items: center; justify-content: center; color: var(--text-muted);">Preview Item</div>
+            <div class="card-body">
+                <span class="card-tag">Electronics</span>
+                <h3 class="card-title">Local Gear Pickup</h3>
+                <div class="seller-info">Posted by Verified User</div>
+                <div class="card-footer">
+                    <div class="price">₹0.00</div>
+                    <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">View Deal</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
