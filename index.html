@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropVault | Hand-to-Hand Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --card-bg: rgba(22, 22, 34, 0.8);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent: #00f59b;
+            --accent-glow: rgba(0, 245, 155, 0.25);
+            --secondary: #7000ff;
+            --text-main: #ffffff;
+            --text-muted: #9496a1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(112, 0, 255, 0.15) 0%, transparent 35%),
+                radial-gradient(circle at 85% 85%, rgba(0, 245, 155, 0.1) 0%, transparent 35%);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .cod-pill {
+            background: rgba(0, 245, 155, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.7rem 1.4rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #050508;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 28px rgba(0, 245, 155, 0.45);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 5% 3rem;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(90deg, #ffffff, #a5a5b5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+        }
+
+        .trust-banner {
+            display: inline-flex;
+            gap: 25px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 12px 28px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            color: #d0d2db;
+        }
+
+        .trust-banner div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trust-banner span {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Filter & Search Bar */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .search-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            color: white;
+            width: 320px;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent);
+        }
+
+        /* Product Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 2rem 5% 5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 245, 155, 0.4);
+        }
+
+        .card-img {
+            height: 210px;
+            width: 100%;
+            object-fit: cover;
+            background: #181824;
+        }
+
+        .card-body {
+            padding: 1.3rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-tag {
+            font-size: 0.72rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+        }
+
+        .seller-info {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter
